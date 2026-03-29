@@ -3,7 +3,7 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Active Environment-aware Optimal Scanning Control for UAV LiDAR-Inertial Odometry in Complex Scenes</title>
+  <title>S3KF: Spherical State-Space Kalman Filtering for Panoramic 3D Multi-Object Tracking</title>
   <link href="./aeos/style.css" rel="stylesheet">
   <script type="text/javascript" src="./aeos/jquery.mlens-1.0.min.js"></script>
   <script type="text/javascript" src="./aeos/jquery.js"></script>
@@ -26,41 +26,67 @@
 
 <body>
   <div class="content">
-    <h1><strong>S3KF: Spherical State-Space Kalman Filtering for Panoramic 3D Multi-Object Tracking</strong></h1>
+    <h1><strong>S<sup>3</sup>KF: Spherical State-Space Kalman Filtering for Panoramic 3D Multi-Object Tracking</strong></h1>
 
     <p id="authors">
       <span>
         <a>Zhongyuan Liu<sup>1</sup></a>
       </span>
       <span>
-        <a>Shaonan Yu<sup>1</sup></a>
+        <a>Shaonan Yu<sup>2</sup></a>
       </span>
       <span>
-        <a>Jianping Li<sup>1</sup></a>
+        <a>Jianping Li<sup>2</sup></a>
       </span>
       <span>
-        <a>Lihua Xie<sup>1</sup></a>
+        <a>Pengfei Wan<sup>2</sup></a>
       </span>
-      <span class="institution">
-        <a href="https://www.ntu.edu.sg/"><sup>1</sup> Nanyang Technological University</a>
+      <span>
+        <a>Xinhang Xu<sup>2</sup></a>
+      </span>
+      <span>
+        <a>Pengfei Wang<sup>3</sup></a>
+      </span>
+      <span>
+        <a>Maggie Y. Gao<sup>2</sup></a>
+      </span>
+      <span>
+        <a>Lihua Xie<sup>2</sup></a>
+      </span>
+      <br style="line-height: 1.8;">
+      <span class="institution" style="display: inline-block; margin: 0 15px;">
+        <a href="https://certaintyx.sg/"><sup>1</sup>Certaintyx</a>
+      </span>
+      <span class="institution" style="display: inline-block; margin: 0 15px;">
+        <a href="https://www.ntu.edu.sg/"><sup>2</sup> Nanyang Technological University</a>
+      </span> 
+      <span class="institution" style="display: inline-block; margin: 0 15px;">
+        <a href="https://www.stengg.com/"><sup>3</sup> ST Engineering</a>
       </span> 
     </p>
 
     <h3>
-      <center>What can S3KF do?</center>
+      <center>What can S<sup>3</sup>KF do?</center>
     </h3>
     <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; margin-bottom: 15px;">
       <iframe 
-        src="https://www.youtube.com/embed/your_video_id" 
-        title="S3KF: Spherical State-Space Kalman Filtering" 
+        width="100%" 
+        height="100%" 
+        src="https://www.youtube.com/embed/pUMGLkfyxYA" 
+        title="SKF Video" 
         frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
         allowfullscreen
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px;">
       </iframe>
     </div>
+    <div style="text-align: center; margin-top: 10px;">
+      <p style="font-size: 14px; color: #666;">
+        <a href="https://www.youtube.com/watch?v=pUMGLkfyxYA" target="_blank" style="color: #667eea; text-decoration: none;">Click here to watch the full video on YouTube</a>
+      </p>
+    </div>
     <a style="text-align:center">
-      <strong>S3KF: Spherical State-Space Kalman Filtering for Panoramic 3D Multi-Object Tracking.</strong> 
+      S<strong><sup>3</sup>KF: Spherical State-Space Kalman Filtering for Panoramic 3D Multi-Object Tracking.</strong> 
       (a) We propose a panoramic 3D multi-object tracking framework fusing rotating LiDAR and fisheye camera array.
       (b) We design a geometrically consistent state representation on the unit sphere S² to avoid projection singularity and over-parameterization.
       (c) We build an extended spherical Kalman filter to fuse visual appearance and LiDAR depth for robust panoramic tracking.
@@ -72,10 +98,23 @@
     <div style="text-align: justify; font-size: 16px; line-height: 1.8; color: #444; background: #f8f9fa; padding: 25px; border-radius: 10px; border-left: 4px solid #667eea;">
       <p>Panoramic 3D perception is crucial for safety monitoring and autonomous operation in industrial scenarios, requiring full-field coverage while maintaining geometric consistency and real-time performance.</p>
       
-      <p><strong>S3KF</strong> presents a unified panoramic 3D multi-object tracking framework that fuses an electric rotating LiDAR with a four-camera array for synchronous full-surround geometry and appearance perception. 
-      Unlike traditional 2D trackers that suffer from panoramic image projection singularities or 3D trackers relying on redundant Euclidean parameterization, S3KF designs a geometrically consistent state representation on the unit sphere S².</p>
+      <p><strong>S<sup>3</sup>KF</strong> presents a unified panoramic 3D multi-object tracking framework that fuses an electric rotating LiDAR with a four-camera array for synchronous full-surround geometry and appearance perception. 
+      Unlike traditional 2D trackers that suffer from panoramic image projection singularities or 3D trackers relying on redundant Euclidean parameterization, S<sup>3</sup>KF designs a geometrically consistent state representation on the unit sphere S².</p>
       
       <p>Experiments in controlled and real-world industrial scenes show that the method achieves decimeter-level tracking accuracy, significantly reduces identity switches, and maintains real-time performance on-board, providing a scalable, infrastructure-free solution for industrial safety monitoring and panoramic multi-object tracking.</p>
+    </div>
+
+    <div class="divider_horizontal"></div>
+
+    <h3>Research Highlights</h3>
+    <div style="background: #fff8f0; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #f5576c;">
+      <ul style="font-size: 16px; line-height: 2; color: #555; margin: 0; padding-left: 20px;">
+        <li><strong>360° Panoramic Perception:</strong> Novel integration of rotating LiDAR and quad-camera array for full-surround synchronized sensing without blind spots.</li>
+        <li><strong>Geometrically Consistent Representation:</strong> Spherical state model on unit sphere S² eliminates projection singularities and over-parameterization inherent in traditional 2D/3D methods.</li>
+        <li><strong>Multi-Modal Sensor Fusion:</strong> Extended spherical Kalman filter seamlessly fuses visual detection, LiDAR depth, and motion information for robust tracking.</li>
+        <li><strong>Infrastructure-Free & Real-Time:</strong> Achieves decimeter-level accuracy with minimal deployment requirements, suitable for UAVs and ground robots in dynamic environments.</li>
+        <li><strong>Open-Source Dataset:</strong> High-precision ground truth with wearable LiDAR system, enabling reproducible research for panoramic 3D tracking.</li>
+      </ul>
     </div>
   </div>
 
@@ -136,20 +175,64 @@
   </div>
 
   <div class="content">
+    <h2>GROUND TRUTH GENERATION FOR 3D TRACKING</h2>
+    
+    <h3 style="margin-top: 20px; margin-bottom: 10px; color: #333;">A. Hardware and System Configuration</h3>
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #43e97b;">
+      <p style="font-size: 16px; line-height: 1.7; color: #555; margin: 0;">
+        Our infrastructure-free mobile localization system integrates LiDAR sensors and computing units worn on the head. All devices connect via WiFi to maintain synchronized time and spatial references, enabling rapid deployment across multiple platforms without pre-deployed base stations.
+      </p>
+    </div>
+
+    <h3 style="margin-top: 20px; margin-bottom: 10px; color: #333;">B. 3D Tracking Ground-truth Generation</h3>
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #667eea;">
+      <p style="font-size: 16px; line-height: 1.7; color: #555; margin: 0;">
+        We construct a unified global coordinate frame from a high-quality LiDAR point cloud map using LiDAR-inertial odometry. Wearable devices localize by registering their real-time LiDAR scans to this map, achieving <strong>centimeter-level accuracy (within 3 cm)</strong>. This eliminates inter-device calibration and avoids cumulative drift during experiments, enabling scalable multi-person trajectory acquisition.
+      </p>
+    </div>
+
+    <div style="text-align: center; margin: 20px 0;">
+        <img src="./aeos/localization.png" alt="Ground Truth Generation System" style="max-width: 70%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    </div>
+  </div>
+
+  <div class="content">
     <h2>Real-world Experiments</h2>
     <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #f5576c;">
       <p style="font-size: 16px; line-height: 1.7; color: #555; margin: 0;">
-        <strong>Panoramic 3D Tracking:</strong> S3KF is validated in indoor, outdoor, dynamic and complex environments. 
+        <strong>Panoramic 3D Tracking:</strong> S<sup>3</sup>KF is validated in indoor, outdoor, dynamic and complex environments. 
         It achieves centimeter-to-decimeter localization accuracy and drastically reduces ID switches compared with 2D trackers like ByteTrack.
       </p>
     </div>
+    <h3>
+      <center>Field Testing Results</center>
+    </h3>
+    <div style="display: grid; grid-template-columns: repeat(2, 2fr); gap: 15px; margin-bottom: 20px;">
+      <div>
+        <video width="100%" controls autoplay muted loop playsinline src="aeos/indoor_dog.mp4"></video>
+        <p style="text-align:center; font-size:18px; margin-top:5px;">Indoor Environment with Dog platforms</p>
+      </div>
+      <div>
+        <video width="100%" controls autoplay muted loop playsinline src="aeos/indoor_drone.mp4"></video>
+        <p style="text-align:center; font-size:18px; margin-top:5px;">Indoor Environment with Drone platforms</p>
+      </div>
+      <div>
+        <video width="100%" controls autoplay muted loop playsinline src="aeos/outdoor_dog.mp4"></video>
+        <p style="text-align:center; font-size:18px; margin-top:5px;">Outdoor Environment with Dog platforms</p>
+      </div>
+      <div>
+        <video width="100%" controls autoplay muted loop playsinline src="aeos/outdoor_drone.mp4"></video>
+        <p style="text-align:center; font-size:18px; margin-top:5px;">Outdoor Environment with Drone platforms</p>
+      </div>
+    </div>
+    <br><br>
   </div>
 
   <div class="content">
     <h2>Conclusion</h2>
     <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #667eea;">
       <p style="font-size: 16px; line-height: 1.7; color: #555; margin: 0;">
-        S3KF provides a unified framework for panoramic 3D multi-object tracking by introducing spherical geometry and multi-modal fusion. 
+        S<sup>3</sup>KF provides a unified framework for panoramic 3D multi-object tracking by introducing spherical geometry and multi-modal fusion. 
         It effectively addresses projection distortion, state redundancy, and unstable filtering in traditional methods, enabling robust, real-time, infrastructure-free panoramic perception for robotics and industrial applications.
       </p>
     </div>
